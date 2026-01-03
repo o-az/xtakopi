@@ -13,7 +13,7 @@ const takopiPath = NodePath.join(NodeOS.homedir(), '.takopi', 'takopi.toml')
 let takopiToml = await NodeFS.readFile(takopiPath, 'utf8')
 
 takopiToml = takopiToml
-  .replace('chat_id = ""', `chat_id = "${chatId}"`)
+  .replace("chat_id = 0", `chat_id = ${chatId}`)
   .replace('bot_token = ""', `bot_token = "${botToken}"`)
 
 const success = await Bun.write(takopiPath, takopiToml)

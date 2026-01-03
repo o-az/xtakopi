@@ -1,11 +1,13 @@
 
-model = "gpt-5.2-codex-xmas"
-model_reasoning_effort = "high"
+model = "gpt-5.2"
+model_reasoning_effort = "medium"
 
 profile = "default"
 
+sandbox_mode = "danger-full-access"
+
 [profiles.default]
-model = "gpt-5.2-codex-xmas"
+model = "gpt-5.2"
 model_reasoning_effort = "high"
 
 [tui]

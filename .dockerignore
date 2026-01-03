@@ -9,3 +9,5 @@
 !setup.ts
 !package.json
 !entrypoint.sh
+!bunfig.toml
+!opencode.json
