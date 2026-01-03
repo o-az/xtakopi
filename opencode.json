@@ -1,0 +1,70 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "opencode",
+  "model": "xai/grok-4-1-fast",
+  "provider": {
+    "xai": {
+      "models": {
+        "grok-4-1-fast": {
+          "name": "Grok 4.1 Fast AF",
+          "model": "xai/grok-4-1-fast"
+        }
+      },
+      "options": {
+        "timeout": 600000,
+        "setCacheKey": true,
+        "apiKey": "{env:XAI_API_KEY}"
+      }
+    },
+    "github-copilot": {
+      "models": {
+        "gpt-5-codex-max": {
+          "name": "GH Codex 5 Max",
+          "model": "gpt-5.1-codex-max"
+        }
+      },
+      "options": {
+        "apiKey": "{env:GITHUB_API_KEY}"
+      }
+    },
+    "google": {
+      "models": {
+        "gemini-flash": {
+          "name": "Gemini 3 Flash",
+          "model": "gemini-3-flash-preview"
+        },
+        "gemini-3-pro-preview": {
+          "name": "Gemini 3 Pro",
+          "limit": { "context": 1000000, "output": 64000 },
+          "modalities": { "output": ["text"], "input": ["text", "image"] }
+        }
+      },
+      "options": {
+        "apiKey": "{env:GOOGLE_API_KEY}"
+      }
+    },
+    "anthropic": {
+      "models": {
+        "claude-opus-4-20250514": {
+          "name": "Claude Opus 4",
+          "model": "claude-opus-4-20250514"
+        }
+      },
+      "options": {
+        "timeout": 600000,
+        "apiKey": "{env:ANTHROPIC_API_KEY}",
+        "baseURL": "https://api.anthropic.com/v1"
+      }
+    }
+  },
+  "tools": {
+    "list": true,
+    "glob": true,
+    "grep": true,
+    "task": true,
+    "bash": true,
+    "write": true,
+    "webfetch": true,
+    "websearch": true
+  }
+}
