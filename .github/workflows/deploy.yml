@@ -1,0 +1,42 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+
+concurrency:
+  cancel-in-progress: true
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  RAILWAY_SERVICE: xtakopi
+  ACTIONS_RUNNER_DEBUG: true
+
+jobs:
+  deploy:
+    name: "Check then Deploy"
+    timeout-minutes: 5
+    runs-on: ["ubuntu-latest"]
+    steps:
+      - name: "🔑 Checkout"
+        uses: actions/checkout@v6
+
+      - name: "🐰 Setup bun"
+        uses: oven-sh/setup-bun@main
+        with:
+          bun-version: "latest"
+
+      - name: "Install Dependencies"
+        run: bun install --frozen-lockfile
+
+      - name: "Deploy"
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        run: |
+          export RAILWAY_TOKEN=$RAILWAY_TOKEN
+          bun x railway up --service=$RAILWAY_SERVICE --detach

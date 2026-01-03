@@ -1,0 +1,14 @@
+default_engine = "codex"
+
+chat_id = ""
+bot_token = ""
+
+[codex]
+profile = "default"
+
+[claude]
+model = "opus"
+# uses subscription by default, override to use api billing
+use_api_billing = false
+dangerously_skip_permissions = false
+allowed_tools = ["Bash", "Read", "Write", "WebSearch"]

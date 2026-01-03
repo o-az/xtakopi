@@ -1,0 +1,10 @@
+# ignore everything
+*
+
+# except for
+!Dockerfile
+!.dockerignore
+!takopi.toml
+!codex.toml
+!setup.ts
+!package.json

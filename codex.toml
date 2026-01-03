@@ -1,0 +1,28 @@
+
+model = "gpt-5.2-codex-xmas"
+model_reasoning_effort = "high"
+
+profile = "default"
+
+[profiles.default]
+model = "gpt-5.2-codex-xmas"
+model_reasoning_effort = "high"
+
+[tui]
+notifications = true
+
+[features]
+tui = true
+skills = true
+unified_exec = true
+view_image_tool = true
+apply_patch_freeform = true
+web_search_request = true
+show_raw_agent_reasoning = true
+
+[mcp_servers.chrome-devtools]
+command = "bunx"
+args = ["chrome-devtools-mcp@latest", "--channel", "canary"]
+
+[notice]
+hide_gpt5_1_migration_prompt = true
