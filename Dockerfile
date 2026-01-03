@@ -9,8 +9,10 @@ RUN uv tool install takopi
 
 FROM python:3.14-slim-trixie AS runtime
 
-ENV PATH="/root/.bun/bin:/root/.local/bin:$PATH"
+ARG DEBUG=false
+ENV DEBUG=${DEBUG}
 ENV NODE_ENV="production"
+ENV PATH="/root/.bun/bin:/root/.local/bin:$PATH"
 
 RUN apt-get update \
   && apt-get install --yes --no-install-recommends \
@@ -47,4 +49,4 @@ RUN mkdir -p ~/.codex ~/.takopi \
 EXPOSE 8080
 
 ENTRYPOINT ["./entrypoint.sh"]
-CMD ["takopi", "--debug"]
+CMD ["takopi"]

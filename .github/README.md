@@ -27,6 +27,28 @@ deploying to railway
 
 ```sh
 bun railway login
-bun railway init
-bun railway deploy
+
+# create a new project
+bun railway init --name='mytakopi'
+
+# add a service to the project
+# this is where docker image will run
+bun railway add --service='mytakopi'
+
+# add your environment variables to the service
+bun railway variables \
+    --service='mytakopi' \
+    --skip-deploys \
+    --set 'TELEGRAM_CHAT_ID=...' \
+    --set 'TELEGRAM_BOT_TOKEN=...' \
+    --set 'OPENAI_API_KEY=...' \
+    --set 'ANTHROPIC_API_KEY=...'
+    # ...
+
+# deploy the service
+export RAILWAY_DOCKERFILE='./Dockerfile'
+bun railway up \
+    --service='mytakopi' \
+    --environment='production' \
+    --detach # optional
 ```

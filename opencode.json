@@ -11,7 +11,8 @@
         }
       },
       "options": {
-        "timeout": 600000,
+        "apiKey": "{env:XAI_API_KEY}"
+        timeout: 600000,
         "setCacheKey": true,
         "headers": {
           "Authorization": "Bearer {env:XAI_API_KEY}"
